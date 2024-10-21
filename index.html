@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skillplay - Inscription au tournoi de billard</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Skillplay</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h3>Participez dès maintenant !</h3>
+            <form id="tournamentForm">
+                <label for="name">Nom complet* :</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                
+                <label for="email">Email* <span style="color: red; font-size: 13px;">(Unique)</span>:</label>
+                <input type="email" id="email" name="email" placeholder="Votre email" required>
+                
+                <label for="phone">Téléphone* <span style="color: red; font-size: 13px;">(Unique)</span>:</label>
+        
+                <input type="tel" id="phone" name="phone" value="+212 " placeholder="Votre numéro de téléphone" required onfocus="setPrefix()" oninput="keepPrefix()">
+
+                
+                                
+                <label for="experience">Niveau d'expérience *:</label>
+                <select id="experience" name="experience" required>
+                    <option value="" disabled selected>Choisir...</option>
+                    <option value="débutant">Débutant</option>
+                    <option value="intermédiaire">Intermédiaire</option>
+                    <option value="avancé">Avancé</option>
+                    <option value="professionnel">Professionnel</option>
+                </select>
+                <p style="margin-bottom: 10px;"><span style="color: red;">ATTENTION:</span> si vous utilisez un e-mail ou un numéro de téléphone déjà enregistré, vous ne pourrez pas vous inscrire.</p>
+
+                <button type="button" id="verifyPhone">S'inscrire</button>
+            </form>
+            <p id="successMessage" class="hidden">Merci pour ton inscription !</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Skillplay - Tournoi de billard</p>
+    </footer>
+
+    <!-- Modal pour la vérification -->
+    <div id="verificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: black;">Vérification du numéro de téléphone</h2>
+            <label style="color: black;" for="verificationCode">Code de vérification :</label>
+            <input type="text" id="verificationCode" placeholder="Entrez le code reçu" required>
+            <button id="verifyButton">Vérifier le code</button>
+        </div>
+    </div>
+
+    <!-- Modal pour le message de succès -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-success">&times;</span>
+            <h2 style="color: black;">Inscription réussie !</h2>
+            <p style="color: black;" id="successMessageText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
